@@ -1,0 +1,35 @@
+.confetti{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    animation: falling 5s infinite;
+    position:absolute;
+    top:-20px;
+    z-index: 2;
+}
+
+@keyframes falling{
+    0%{
+        top:-20px;
+        transform: rotate(180deg);
+    }
+    20% {
+        transform: translateX(100px) rotate(360deg);
+    }
+    40%{
+        transform: translateX(40px) rotate(180deg);
+    }
+    50%{
+        opacity: 1;
+        transform: translateX(20px) rotate(360deg);
+    }
+    70%{
+        opacity: 0.2;
+        transform: translateX(30px) rotate(180deg); 
+    }
+    100%{
+        opacity: 0;
+        top:100%;
+        transform: translateX(20px) rotate(360deg);
+    }
+}
