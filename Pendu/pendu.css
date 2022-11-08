@@ -24,3 +24,25 @@ table{
     border: 1px solid gray;
     margin: 2px;
 }
+
+#imagePendu{
+    background: url("img/sprite.jpg");
+    width: 130px;
+    height: 140px;
+    margin: 15px auto;
+}
+#imagePendu.etat0{
+    background-position: -20px -55px;
+}
+#imagePendu.etat1{
+    background-position: -220px -55px;
+}
+#imagePendu.etat2{
+    background-position: -410px -55px;
+}
+#imagePendu.etat3{
+    background-position: -20px -250px;
+}
+#imagePendu.etat4{
+    background-position: -220px -250px;
+}
