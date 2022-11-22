@@ -10,13 +10,24 @@
 <body>
     <h1>Le jeu du calcul mental</h1>
 
+    <div>
+        <label for="nbSecondsGame">Compte à rebours en seconde</label><br/>
+        <input id="nbSecondsGame" type="number"/>
+    </div>
+    <div>
+        <label for="maxNumberCalc">Nombre max du calcul</label><br/>
+        <input id="maxNumberCalc" type="number"/>
+    </div>
+    <button onclick="launchGame()">Go</button>
     <!-- Afficher ici le minuteur -->
-    <div id="minuteur"></div>
+    <div class="showPlayingDiv" id="minuteur"></div>
 
     <!-- Afficher le calcul à résoudre -->
-    <div id="calcul"></div>
+    <div class="showPlayingDiv" id="calcul"></div>
 
-    <input type="number" id="resultPropal"/><button id="validPropal">OK</button>
+    <div class="showPlayingDiv" id="propalDiv">
+        <input type="number" id="resultPropal"/><button id="validPropal">OK</button>
+    </div>
 
     <!-- Zone de communication avec le joueur -->
     <div id="messenger"></div>
