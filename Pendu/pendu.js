@@ -9,6 +9,7 @@ TODO :
     O Afficher des lettres visibles (en fonction de la difficulté)
 */
 import { Confetti } from "../lib/confetti.js";
+import { Utils } from "../lib/Utils/utils.js";
 
 const allWords = ["ministre", "congolais", "constitution",
  "corompre", "petrole", "dictateur", "sapeur",
@@ -130,13 +131,10 @@ function generateAlphabet(capital = false) {
 }
 
 function generateWord(){
-    let indexWord = getRandomInt(allWords.length);
+    let indexWord = Utils.getRandomInt(allWords.length);
     return allWords[indexWord];
 }
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
 
 //Retourne true si la lettre est présente dans le mot
 //Retourne false si la lettre est absente du mot

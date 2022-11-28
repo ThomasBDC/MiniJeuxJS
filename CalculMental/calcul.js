@@ -6,8 +6,8 @@ X Générer un calcul (deux chiffres aléatoires, (+ - *) en aléatoire)
 X Laisser l'utilisateur faire des propositions.
 
 V2
-Paramétrer ma partie
-Le temps du compte à rebours
+X Paramétrer ma partie
+X Le temps du compte à rebours
 Les opérateurs de la partie
 Gérer les divisions
 */

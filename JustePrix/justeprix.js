@@ -2,6 +2,7 @@
 //L'utilisateur fera des propositions
 //Continuer tant qu'il n"a pas la bonne proposition
 import { Confetti } from "../lib/confetti.js";
+import { Utils } from "../lib/Utils/utils.js";
 
 let NumberToFind = 0;
 const resultDiv = document.getElementById("resultDiv");
@@ -27,10 +28,6 @@ document.getElementById("userPropalInput")
         }
     });
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
 function checkPropal(){
     let numberPropal = document.getElementById("userPropalInput").value;
     if(NumberToFind > numberPropal){
@@ -51,7 +48,7 @@ function checkPropal(){
 
 function launchGame(){
     Confetti.stopAnimationConfeti();
-    NumberToFind = getRandomInt(1000);
+    NumberToFind = Utils.getRandomInt(1000);
     TempsRestant = 30;
     GamePropalDiv.style.display = "block";
     if(compteurInterval != null){
