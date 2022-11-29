@@ -30,25 +30,48 @@ function launchGame(){
 
 function checkProposition(){
     let allSelect = allSelectDiv.querySelectorAll("select");
-    let propal = Array.from(allSelect, select => select.value).slice(-4);
+    let propal = Array.from(allSelect, select => select.value).slice(0-nbColorToFind);
     console.log(propal);
 
     let cptGoodPlace = 0;
     let cptBadPlace = 0;
-
+    let colorToFindCopy = colorTabToFind;
+    
     //ON parcours le tableau de propositions
+    //Pour vérifier les éléments bien placés
     for (let i = 0; i < propal.length; i++) {
         //On compare avec la couleur dans le tableau masqué, au même endroit
-        if(propal[i] == colorTabToFind[i]){
+        if(propal[i] == colorToFindCopy[i]){
             //La proposition est bonne
             //Bonne couleur au bon endroit
             cptGoodPlace++;
+            colorTabToFind[i] = "trouvé";
+            propal[i] = "trouvéCotePropal";
         }
     }
-    
+
+    //ON parcours le tableau de propositions
+    //Pour vérifier les éléments de la bonne couleur mais mal placés
+    for (let i = 0; i < propal.length; i++) {
+        //On compare avec la couleur dans le tableau masqué, au même endroit
+        if(propal[i] != "trouvéCotePropal"){
+            let finded = false;
+            colorToFindCopy.forEach(color => {
+                if(!finded){
+                    if(propal[i] == color){
+                        cptBadPlace++;
+                        propal[i] = "trouvéCotePropal";
+                        color = "trouvé";
+                        finded = true;
+                    }
+                }
+            });
+        }
+    }
+
     //Ajout de la ligne de message de points
     let lineResponse = document.createElement("div");
-    lineResponse.innerText = "Couleurs bien placées :"+cptGoodPlace;
+    lineResponse.innerText = "Ok :"+cptGoodPlace+" | Moyen:"+cptGoodPlace;
     allSelectDiv.appendChild(lineResponse);
 
     //Si on a autant de bonne de réponses que de cases dans mon tableau
