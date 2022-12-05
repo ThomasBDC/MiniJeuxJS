@@ -23,6 +23,8 @@ document.getElementById("startButton").addEventListener("click", ()=> {
 
 function launchGame(){
     setAleaColorTab();
+    //Afficher le tableau à trouver en console.
+    console.log(colorTabToFind);
     allSelectDiv.innerHTML = "";
     generateLineSelect();
 }
@@ -31,11 +33,11 @@ function launchGame(){
 function checkProposition(){
     let allSelect = allSelectDiv.querySelectorAll("select");
     let propal = Array.from(allSelect, select => select.value).slice(0-nbColorToFind);
-    console.log(propal);
 
     let cptGoodPlace = 0;
     let cptBadPlace = 0;
-    let colorToFindCopy = colorTabToFind;
+    //Fait une copie du tableau (spread operator)
+    let colorToFindCopy = [...colorTabToFind];
     
     //ON parcours le tableau de propositions
     //Pour vérifier les éléments bien placés
@@ -45,7 +47,7 @@ function checkProposition(){
             //La proposition est bonne
             //Bonne couleur au bon endroit
             cptGoodPlace++;
-            colorTabToFind[i] = "trouvé";
+            colorToFindCopy[i] = "trouvé";
             propal[i] = "trouvéCotePropal";
         }
     }
@@ -56,12 +58,12 @@ function checkProposition(){
         //On compare avec la couleur dans le tableau masqué, au même endroit
         if(propal[i] != "trouvéCotePropal"){
             let finded = false;
-            colorToFindCopy.forEach(color => {
+            colorToFindCopy.forEach((color, index) => {
                 if(!finded){
                     if(propal[i] == color){
                         cptBadPlace++;
                         propal[i] = "trouvéCotePropal";
-                        color = "trouvé";
+                        colorToFindCopy[index] = "trouvé";
                         finded = true;
                     }
                 }
@@ -71,7 +73,7 @@ function checkProposition(){
 
     //Ajout de la ligne de message de points
     let lineResponse = document.createElement("div");
-    lineResponse.innerText = "Ok :"+cptGoodPlace+" | Moyen:"+cptGoodPlace;
+    lineResponse.innerText = "Bon endroit :"+cptGoodPlace+" | Mauvais endroit:"+cptBadPlace;
     allSelectDiv.appendChild(lineResponse);
 
     //Si on a autant de bonne de réponses que de cases dans mon tableau
