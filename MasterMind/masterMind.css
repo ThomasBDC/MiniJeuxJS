@@ -1,0 +1,8 @@
+select{
+    margin:15px;
+    padding: 10px;
+}
+select option{
+    zoom:2;
+    pointer-events: none !important;
+}

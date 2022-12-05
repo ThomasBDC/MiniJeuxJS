@@ -107,12 +107,17 @@ function generateSelect(target){
     let mySelect = document.createElement("select");
     colors.forEach(color => {
         let colorOption = document.createElement("option");
-        colorOption.innerHTML = color;
+        //colorOption.innerHTML = color;
         colorOption.value = color;
         colorOption.style.backgroundColor = color;
         mySelect.appendChild(colorOption);
     });
+    mySelect.style.backgroundColor = mySelect.value;
 
+    mySelect.addEventListener("change", (e)=> {
+        console.log(e.target.value);
+        e.target.style.backgroundColor = e.target.value;
+    });
     target.appendChild(mySelect);
 }
 
