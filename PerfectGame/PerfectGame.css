@@ -1,0 +1,106 @@
+#CardsPlateau {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#CardsPlateau .perso {
+  background: url("img/sprite-perso.png");
+  width: 70px;
+  height: 70px;
+}
+
+.perso.perso1 {
+  background-position: 83.4px 76px !important;
+}
+
+.perso.perso2 {
+  background-position: 166.8px 76px !important;
+}
+
+.perso.perso3 {
+  background-position: 250.2px 76px !important;
+}
+
+.perso.perso4 {
+  background-position: 333.6px 76px !important;
+}
+
+.perso.perso5 {
+  background-position: 417px 76px !important;
+}
+
+.perso.perso6 {
+  background-position: 500.4px 76px !important;
+}
+
+.perso.perso7 {
+  background-position: 583.8px 152px !important;
+}
+
+.perso.perso8 {
+  background-position: 667.2px 152px !important;
+}
+
+.perso.perso9 {
+  background-position: 750.6px 152px !important;
+}
+
+.perso.perso10 {
+  background-position: 834px 152px !important;
+}
+
+.perso.perso11 {
+  background-position: 917.4px 152px !important;
+}
+
+.perso.perso12 {
+  background-position: 1000.8px 152px !important;
+}
+
+.perso.perso13 {
+  background-position: 1084.2px 228px !important;
+}
+
+.perso.perso14 {
+  background-position: 1167.6px 228px !important;
+}
+
+.perso.perso15 {
+  background-position: 1251px 228px !important;
+}
+
+.perso.perso16 {
+  background-position: 1334.4px 228px !important;
+}
+
+.perso.perso17 {
+  background-position: 1417.8px 228px !important;
+}
+
+.perso.perso18 {
+  background-position: 1501.2px 228px !important;
+}
+
+.perso.perso19 {
+  background-position: 1584.6px 304px !important;
+}
+
+.perso.perso20 {
+  background-position: 1668px 304px !important;
+}
+
+.perso.perso21 {
+  background-position: 1751.4px 304px !important;
+}
+
+.perso.perso22 {
+  background-position: 1834.8px 304px !important;
+}
+
+.perso.perso23 {
+  background-position: 1918.2px 304px !important;
+}
+
+.perso.perso24 {
+  background-position: 2001.6px 304px !important;
+}/*# sourceMappingURL=PerfectGame.css.map */
