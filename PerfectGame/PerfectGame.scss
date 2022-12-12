@@ -3,18 +3,42 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
 
+#elementToFind{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 5px green solid;
+    margin-bottom: 15px;
     .perso{
+        margin:auto;
+    }
+}
+
+.perso{
     background: url("img/sprite-perso.png");
     width: 70px;
     height: 70px;
-    }
-}
+    margin:10px;
+    
+    @for $i from 0 through 24 {
+        &.perso#{$i}{
+            $left: $i*83.4px;
+            $top: math.ceil(calc($i / 6)) * 76px;
+            background-position: $left $top !important;
+    
+            &.hidden{
+                background: url("img/interrogation.png");
+                background-position: 0 0 !important;
 
-@for $i from 1 through 24 {
-    .perso.perso#{$i}{
-        $left: $i*83.4px;
-        $top: math.ceil(calc($i / 6)) * 76px;
-        background-position: $left $top !important;
+                &:hover{
+                    cursor:pointer;
+                    background-color: antiquewhite;
+                    border-radius:50px;
+                }
+            }   
+        }
     }
-}
+    }
+
