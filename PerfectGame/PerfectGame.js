@@ -21,6 +21,32 @@ const nbCardsParam = 5;
 let nbTourGagne = 0;
 let classCardToFind;
 
+let modal = new tingle.modal({
+    footer: true,
+    stickyFooter: false,
+    closeMethods: ['overlay', 'button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['custom-class-1', 'custom-class-2'],
+    onOpen: function() {
+        console.log('modal open');
+    },
+    onClose: function() {
+        console.log('modal closed');
+    },
+    beforeClose: function() {
+        // here's goes some logic
+        // e.g. save content before closing the modal
+        return true; // close the modal
+        return false; // nothing happens
+    }
+});
+// add a button
+modal.addFooterBtn('OK', 'tingle-btn tingle-btn--danger', function() {
+    // here goes some logic
+    modal.close();
+});
+
+
 document.getElementById("newGameButton").addEventListener("click", newGame);
 
 function newGame(){
@@ -38,30 +64,40 @@ function newTour(){
     let cardsPlateau = plateau.querySelectorAll(".perso");
     classCardToFind = cardsPlateau[nbCardToFind].classList; 
     console.log(classCardToFind);
-    setTimeout(() => {
-        let allCards = document.querySelectorAll(".perso");
-        allCards.forEach(card => {
-            card.classList.add("hidden");
-            card.addEventListener("click", function clickOnCard(){
-                if(card.classList.contains("hidden")){
-                    if(classCardToFind.value == card.classList.value){
-                        nbTourGagne++;
-                        newTour();
+    let cptSeconds =5;
+    elementToFindDiv.innerHTML = cptSeconds;
+    let CompteARebours = setInterval(() => {
+        cptSeconds--;
+        elementToFindDiv.innerHTML = cptSeconds;
+        if(cptSeconds == 0){
+            clearInterval(CompteARebours);
+            let allCards = document.querySelectorAll(".perso");
+            allCards.forEach(card => {
+                card.classList.add("hidden");
+                card.addEventListener("click", function clickOnCard(){
+                    if(card.classList.contains("hidden")){
+                        if(classCardToFind.value == card.classList.value){
+                            nbTourGagne++;
+                            newTour();
+                        }
+                        else{
+                            
+                            modal.setContent('Perdu, votre score est de '+nbTourGagne);
+                            modal.open();
+                            allCards.forEach(cardWhenLoose => {
+                                cardWhenLoose.classList.remove("hidden");
+                            });
+                        }
                     }
-                    else{
-                        alert("perdu !");
-                        allCards.forEach(cardWhenLoose => {
-                            cardWhenLoose.classList.remove("hidden");
-                        });
-                    }
-                }
+                });
             });
-        });
-        let newCardToFind = document.createElement("div");
-        newCardToFind.classList = classCardToFind;
-        newCardToFind.classList.remove("hidden");
-        elementToFindDiv.appendChild(newCardToFind);
-      }, "5000");
+            let newCardToFind = document.createElement("div");
+            newCardToFind.classList = classCardToFind;
+            newCardToFind.classList.remove("hidden");
+            elementToFindDiv.innerHTML = "";
+            elementToFindDiv.appendChild(newCardToFind);
+        }
+    }, 1000);
 
 }
 

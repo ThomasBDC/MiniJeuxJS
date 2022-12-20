@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+body {
+  text-align: center;
+  font-family: "Play", sans-serif;
+}
+
 #CardsPlateau {
   display: flex;
   flex-wrap: wrap;
@@ -6,10 +12,13 @@
 
 #elementToFind {
   width: 100px;
-  height: 100px;
-  margin: auto;
+  padding: 10PX;
+  border-radius: 10px;
+  margin: 15px auto;
   border: 5px green solid;
-  margin-bottom: 15px;
+  font-weight: bold;
+  color: red;
+  font-size: 25px;
 }
 #elementToFind .perso {
   margin: auto;
@@ -320,4 +329,82 @@
   cursor: pointer;
   background-color: antiquewhite;
   border-radius: 50px;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  -webkit-animation: glowing 20s linear infinite;
+          animation: glowing 20s linear infinite;
+  opacity: 0;
+}
+.glow-on-hover:active {
+  color: #000;
+}
+.glow-on-hover:after {
+  background: transparent;
+}
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@-webkit-keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.tingle-modal-box__content {
+  font-size: 40px;
+  color: black;
+  background-color: cadetblue;
 }/*# sourceMappingURL=PerfectGame.css.map */
