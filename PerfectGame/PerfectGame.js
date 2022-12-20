@@ -27,12 +27,6 @@ let modal = new tingle.modal({
     closeMethods: ['overlay', 'button', 'escape'],
     closeLabel: "Close",
     cssClass: ['custom-class-1', 'custom-class-2'],
-    onOpen: function() {
-        console.log('modal open');
-    },
-    onClose: function() {
-        console.log('modal closed');
-    },
     beforeClose: function() {
         // here's goes some logic
         // e.g. save content before closing the modal
@@ -63,7 +57,6 @@ function newTour(){
     let nbCardToFind = Utils.getRandomInt(nbCardsParam);
     let cardsPlateau = plateau.querySelectorAll(".perso");
     classCardToFind = cardsPlateau[nbCardToFind].classList; 
-    console.log(classCardToFind);
     let cptSeconds =5;
     elementToFindDiv.innerHTML = cptSeconds;
     let CompteARebours = setInterval(() => {
